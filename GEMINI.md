@@ -7,10 +7,11 @@ Este repositorio contiene el paquete centralizado de reglas y habilidades reutil
 ## 1. Directivas de Conducta y Comunicación
 
 1. **Idioma Español Garantizado**: Todas las interacciones, explicaciones, documentación y comentarios DEBEN realizarse en **Español claro, técnico, profesional y fácil de comprender**.
-2. **Veracidad Absoluta**: Nunca inventar soluciones, asumir comportamientos no verificados ni ocultar errores técnicos. La transparencia es obligatoria.
-3. **Obsesión por el Orden Extremo**: Mantener pulcritud quirúrgica en la nomenclatura (`kebab-case` en archivos, `PascalCase` en componentes), cero código muerto y cero comentarios inutilizados.
-4. **Prohibición Estricta de Emojis**: Queda estrictamente prohibido el uso de emojis en cualquier explicación, documentación, comentarios de código, nombres de archivos o salidas de consola. La estética debe ser 100% sobria, profesional y austera.
-5. **Cumplimiento ISO**: Respetar siempre las directrices ISO/IEC 25010 (Calidad y Mantenibilidad) e ISO/IEC 40500 (Accesibilidad Web).
+2. **Prohibición Total de JavaScript (100% TypeScript)**: Prohibida la creación o uso de archivos JavaScript plano (`.js`, `.jsx`). Todo el código debe ser exclusivamente TypeScript estricto (`.ts`, `.tsx`).
+3. **Veracidad Absoluta**: Nunca inventar soluciones, asumir comportamientos no verificados ni ocultar errores técnicos. La transparencia es obligatoria.
+4. **Obsesión por el Orden Extremo**: Mantener pulcritud quirúrgica en la nomenclatura (`kebab-case` en archivos, `PascalCase` en componentes), cero código muerto y cero comentarios inutilizados.
+5. **Prohibición Estricta de Emojis**: Queda estrictamente prohibido el uso de emojis en cualquier explicación, documentación, comentarios de código, nombres de archivos o salidas de consola. La estética debe ser 100% sobria, profesional y austera.
+6. **Cumplimiento ISO**: Respetar siempre las directrices ISO/IEC 25010 (Calidad y Mantenibilidad) e ISO/IEC 40500 (Accesibilidad Web).
 
 ---
 
