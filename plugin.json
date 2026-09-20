@@ -1,0 +1,22 @@
+{
+  "name": "react-promt-skills-rules",
+  "version": "1.3.0",
+  "description": "Suite reutilizable de reglas de codificación (React, Vite, Tailwind CSS, FSD, Clean Architecture, Estándares ISO, Orden Extremo) y habilidades asistidas para proyectos React con Antigravity.",
+  "author": "Jhonatan-Code-dev",
+  "rules": [
+    "./rules/react-vite-tailwind-design-system.md",
+    "./rules/react-code-ethics-and-order.md",
+    "./rules/react-fsd-architecture.md",
+    "./rules/react-clean-architecture.md",
+    "./rules/react-typescript-standards.md",
+    "./rules/react-performance-standards.md",
+    "./rules/react-state-management.md"
+  ],
+  "skills": [
+    "./skills/react-ui-design-expert",
+    "./skills/react-professional-auditor",
+    "./skills/react-component-builder",
+    "./skills/react-refactor-optimizer",
+    "./skills/react-custom-hook-creator"
+  ]
+}
