@@ -83,6 +83,16 @@ try {
     console.log(`Habilidades copiadas exitosamente en: ${destSkills}`);
   }
 
+  // Copiar directivas maestras GEMINI.md y AGENTS.md
+  ['GEMINI.md', 'AGENTS.md'].forEach((docFile) => {
+    const srcDoc = path.join(sourceDir, docFile);
+    if (fs.existsSync(srcDoc)) {
+      const destDoc = path.join(targetBaseDir, docFile);
+      fs.copyFileSync(srcDoc, destDoc);
+      console.log(`Directiva maestra copiada en: ${destDoc}`);
+    }
+  });
+
   console.log('\nInstalación completada con éxito.');
   console.log('Las reglas y habilidades ahora están activas en la ubicación destino.\n');
 } catch (error) {

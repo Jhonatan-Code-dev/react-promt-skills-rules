@@ -78,6 +78,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 | `react-performance-standards.md` | Estrategias de memoización consciente (`useMemo`, `useCallback`) y bundle size. |
 | `react-state-management.md` | Criterios de delimitación entre estado local, global (Zustand) y de servidor. |
 | `react-viewport-fit-sticky-pagination.md` | Layout 100% viewport-fit, scroll interno aislado y paginación fija al fondo. |
+| `react-toggle-switch-and-table-stability.md` | Interruptor deslizante, UI optimista (0ms), table-fixed y control anti-toast. |
 
 ---
 
@@ -99,6 +100,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 | `react-refactor-optimizer` | Conversión de código legado desorganizado a patrones modernos y ordenados. |
 | `react-custom-hook-creator` | Extracción y encapsulamiento de lógica de estado en custom hooks. |
 | `react-viewport-fit-pagination-expert` | Diseño y auditoría de layouts viewport-fit y paginación sticky bottom. |
+| `react-toggle-switch-expert` | Implementación y auditoría de Toggle Switches estables y anti-toast stacking. |
 
 ---
 
@@ -106,8 +108,8 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 ```text
 react-promt-skills-rules/
-├── rules/             # 18 Reglas estandarizadas de gobernanza técnica
-├── skills/            # 14 Habilidades especializadas para asistentes AI
+├── rules/             # 19 Reglas estandarizadas de gobernanza técnica
+├── skills/            # 15 Habilidades especializadas para asistentes AI
 ├── package.json       # Manifiesto ejecutable para distribución NPX / NPM
 ├── plugin.json        # Manifiesto de integración para Antigravity IDE
 ├── install.js         # Script ejecutable multiplataforma (Node.js)
@@ -123,7 +125,7 @@ react-promt-skills-rules/
 Una vez instalada la carpeta `.agents/` en tu proyecto o registrada globalmente:
 
 1. **Reglas Automáticas**: Antigravity y Gemini aplican de forma pasiva y continua todas las normas de TypeScript estricto, orden de archivos, gobernanza Tailwind y directivas de seguridad en cada edición de código.
-2. **Invocación de Habilidades**: Puedes activar cualquiera de las 14 habilidades solicitándolo explícitamente en la interacción (ejemplo: *"Aplica la habilidad react-multitenant-architecture para configurar el contexto de inquilinos"*).
+2. **Invocación de Habilidades**: Puedes activar cualquiera de las 15 habilidades solicitándolo explícitamente en la interacción (ejemplo: *"Aplica la habilidad react-multitenant-architecture para configurar el contexto de inquilinos"*).
 
 ---
 

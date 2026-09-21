@@ -20,7 +20,8 @@
     "./rules/react-typescript-standards.md",
     "./rules/react-performance-standards.md",
     "./rules/react-state-management.md",
-    "./rules/react-viewport-fit-sticky-pagination.md"
+    "./rules/react-viewport-fit-sticky-pagination.md",
+    "./rules/react-toggle-switch-and-table-stability.md"
   ],
   "skills": [
     "./skills/react-reverse-proxy-expert",
@@ -35,6 +36,7 @@
     "./skills/react-component-builder",
     "./skills/react-refactor-optimizer",
     "./skills/react-custom-hook-creator",
-    "./skills/react-viewport-fit-pagination-expert"
+    "./skills/react-viewport-fit-pagination-expert",
+    "./skills/react-toggle-switch-expert"
   ]
 }

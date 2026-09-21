@@ -37,4 +37,12 @@ if (Test-Path $SourceSkills) {
     Write-Host "Habilidades instaladas en: $DestSkills" -ForegroundColor Green
 }
 
+@("GEMINI.md", "AGENTS.md") | ForEach-Object {
+    $DocFile = Join-Path $SourceDir $_
+    if (Test-Path $DocFile) {
+        Copy-Item -Path $DocFile -Destination $TargetBase -Force
+        Write-Host "Directiva maestra instalada en: $TargetBase\$_" -ForegroundColor Green
+    }
+}
+
 Write-Host "`nInstalación completada con éxito." -ForegroundColor Yellow

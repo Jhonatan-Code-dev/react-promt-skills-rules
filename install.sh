@@ -43,5 +43,12 @@ if [ -d "$SOURCE_DIR/skills" ]; then
     echo "Habilidades instaladas en: $TARGET_BASE/skills"
 fi
 
+for doc in "GEMINI.md" "AGENTS.md"; do
+    if [ -f "$SOURCE_DIR/$doc" ]; then
+        cp "$SOURCE_DIR/$doc" "$TARGET_BASE/$doc"
+        echo "Directiva maestra instalada en: $TARGET_BASE/$doc"
+    fi
+done
+
 echo ""
 echo "Instalación completada con éxito."
