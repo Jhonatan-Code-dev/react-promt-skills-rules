@@ -1,114 +1,131 @@
-# React Rules & Skills Suite (`react-promt-skills-rules`)
+# Suite de Reglas y Habilidades para React (`react-promt-skills-rules`)
 
-Colección estandarizada de Reglas (Rules) y Habilidades (Skills) para optimizar la asistencia de desarrollo con AI (Antigravity IDE / AGY CLI / Gemini) en cualquier proyecto frontend con React, Vite, Tailwind CSS (Gobernanza a gran escala, Tematización con Variables CSS, Mobile-First y Breakpoints), prohibición total de JavaScript (100% TypeScript estricto), 20 Buenas Prácticas Avanzadas de TypeScript, control de Viewport Móvil (Safe Area y Prevención de Auto-Zoom) y consumo de backend en Golang mediante TanStack Query, utilizando Feature-Sliced Design (FSD), Clean Architecture y estándares ISO.
+Paquete centralizado de gobernanza técnica, arquitectura de software y habilidades avanzadas para desarrollo empresarial con React, TypeScript y Tailwind CSS, optimizado para asistentes de inteligencia artificial (Antigravity IDE, AGY CLI y Gemini).
 
 ---
 
-## Contenido del Repositorio
+## Inicio Rápido
+
+Instala de forma instantánea el conjunto de reglas y habilidades en la raíz de cualquier proyecto React mediante `npx`:
+
+### Instalación en Proyecto (Recomendado)
+
+```bash
+npx github:Jhonatan-Code-dev/react-promt-skills-rules
+```
+
+*Crea la carpeta `.agents/` en el proyecto activo con la suite completa de reglas y habilidades configuradas.*
+
+### Instalación Global
+
+```bash
+npx github:Jhonatan-Code-dev/react-promt-skills-rules --global
+```
+
+---
+
+## Actualización a la Última Versión
+
+Si agregas o modificas reglas en este repositorio, cualquier usuario puede actualizar sus proyectos a la versión más reciente **re-ejecutando el comando con el tag `@latest`**:
+
+- **Actualizar en un proyecto local**:
+  ```bash
+  npx github:Jhonatan-Code-dev/react-promt-skills-rules@latest
+  ```
+
+- **Actualizar la instalación global en la máquina**:
+  ```bash
+  npx github:Jhonatan-Code-dev/react-promt-skills-rules@latest --global
+  ```
+
+*El instalador reemplazará automáticamente los archivos de la carpeta `.agents/rules/` y `.agents/skills/` con las últimas actualizaciones publicadas en GitHub.*
+
+
+---
+
+## Pilares de Arquitectura y Gobernanza
+
+El paquete impone estándares de ingeniería rigurosos basados en normativas internacionales:
+
+- **TypeScript Estricto (100%)**: Prohibición total de JavaScript plano (`.js`/`.jsx`). Cero tolerancia a `any` o `@ts-ignore`.
+- **Feature-Sliced Design (FSD)**: Estructuración modular por capas (`app`, `pages`, `widgets`, `features`, `entities`, `shared`).
+- **Arquitectura SaaS Multi-Tenant**: Aislamiento dinámico de datos, interceptores HTTP con `X-Tenant-ID` y tematización *white-labeling*.
+- **Diseño Mobile-First y Viewport**: Objetivos táctiles mínimos de 44px, prevención de auto-zoom e integración de insets (*Safe Area*).
+- **Integración Backend Golang**: Consumo seguro mediante TanStack Query, cliente HTTP desacoplado y Reverse Proxy (Vite / Nginx / Caddy).
+- **Cumplimiento ISO**: Alineación con ISO/IEC 25010 (Mantenibilidad) e ISO/IEC 40500 (Accesibilidad Web WCAG 2.1 AA).
+
+---
+
+## Catálogo de Reglas (`rules/`)
+
+| Regla | Descripción |
+| :--- | :--- |
+| `react-code-ethics-and-order.md` | Anatomía estricta de 5 bloques por archivo, orden de importaciones y cero emojis. |
+| `react-strict-typescript-only.md` | Obligatoriedad exclusiva de archivos `.ts` / `.tsx` y tipos estrictos. |
+| `react-multitenant-standards.md` | Directivas de aislamiento de almacenamiento local y control de módulos por inquilino. |
+| `react-fsd-architecture.md` | Reglas de encapsulamiento e importaciones unidireccionales por capas FSD. |
+| `react-clean-architecture.md` | Desacoplamiento de lógica de negocio, interfaces de repositorio y casos de uso. |
+| `react-reverse-proxy-architecture.md` | Configuración de proxy inverso para desarrollo (Vite) y producción (Nginx / Caddy). |
+| `react-tailwind-architecture-and-governance.md` | Gobernanza de clases CSS, helper `cn()` y prohibición de valores arbitrarios. |
+| `react-tailwind-theme-and-variables.md` | Sistema de temas dinámicos mediante variables CSS nativas y purga de assets. |
+| `react-tailwind-mobile-first-breakpoints.md` | Matriz de puntos de interrupción y diseño responsivo sin sobrescrituras desktop. |
+| `react-tailwind-mobile-first-practices.md` | Estándares de interacción táctil, padding dinámico y optimización móvil. |
+| `react-typescript-advanced-best-practices.md` | 20 patrones avanzados de tipado, uniones discriminadas y guardias de tipo. |
+| `react-typescript-standards.md` | Tipado de eventos sintéticos React, props e interfaces explícitas. |
+| `react-mobile-viewport-safe-area.md` | Manejo de recortes de cámara, barra de estado y comportamiento del viewport. |
+| `react-golang-api-tanstack-query.md` | Cliente HTTP con tipos inferidos, caching y mutaciones optimistas. |
+| `react-vite-tailwind-design-system.md` | Reglas de componentes UI, diseño atómico y coherencia visual. |
+| `react-performance-standards.md` | Estrategias de memoización consciente (`useMemo`, `useCallback`) y bundle size. |
+| `react-state-management.md` | Criterios de delimitación entre estado local, global (Zustand) y de servidor. |
+
+---
+
+## Catálogo de Habilidades (`skills/`)
+
+| Habilidad | Propósito y Caso de Uso |
+| :--- | :--- |
+| `react-multitenant-architecture` | Implementación de SaaS multinquilino, resolución de tenant y marcas dinámicas. |
+| `react-golang-integration` | Creación de clientes de API REST y hooks de consulta para backends Golang. |
+| `react-reverse-proxy-expert` | Auditoría y configuración de proxies inversos en Vite Dev Server, Nginx y Caddy. |
+| `react-tailwind-architecture-expert` | Configuración de sistemas de tokens visuales y gobernanza de estilos. |
+| `react-tailwind-responsive-architect` | Maquetación y auditoría de layouts responsivos Mobile-First. |
+| `react-tailwind-mobile-expert` | Optimización de experiencia táctil y adaptabilidad móvil. |
+| `react-typescript-expert` | Resolución de tipos complejos, genéricos y refactorización estricta. |
+| `react-mobile-viewport-auditor` | Diagnóstico de zoom no deseado y solapamiento en pantallas móviles. |
+| `react-ui-design-expert` | Construcción de interfaces profesionales de alto impacto visual. |
+| `react-professional-auditor` | Auditoría de calidad de código, accesibilidad A11y y estándares ISO. |
+| `react-component-builder` | Generación asistida de componentes React limpios e independientes. |
+| `react-refactor-optimizer` | Conversión de código legado desorganizado a patrones modernos y ordenados. |
+| `react-custom-hook-creator` | Extracción y encapsulamiento de lógica de estado en custom hooks. |
+
+---
+
+## Estructura del Proyecto
 
 ```text
 react-promt-skills-rules/
-├── rules/
-│   ├── react-tailwind-theme-and-variables.md    # Tematización Dinámica con Variables CSS, Purga Eficiente y ESLint
-│   ├── react-tailwind-architecture-and-governance.md # Gobernanza a Gran Escala (cn helper, prohibición de @apply y valores arbitrarios)
-│   ├── react-tailwind-mobile-first-breakpoints.md # Arquitectura Responsiva Mobile-First y Matriz de Breakpoints
-│   ├── react-strict-typescript-only.md          # Prohibición Total de JavaScript y Obligatoriedad 100% TypeScript (.ts/.tsx)
-│   ├── react-tailwind-mobile-first-practices.md # Mejores Prácticas de Diseño Móvil con Tailwind CSS (Touch targets 44px, etc.)
-│   ├── react-typescript-advanced-best-practices.md # 20 Buenas Prácticas Avanzadas de TypeScript
-│   ├── react-mobile-viewport-safe-area.md           # Viewport Móvil, Prevención de Auto-Zoom e Insets de Cámara/Notch
-│   ├── react-golang-api-tanstack-query.md           # Consumo de Backend Golang REST con TanStack Query
-│   ├── react-vite-tailwind-design-system.md         # Sistema de Diseño Experto React + Vite + Tailwind CSS 100%
-│   ├── react-code-ethics-and-order.md               # Orden Extremo, Prohibición de Emojis, Veracidad y Estándares ISO
-│   ├── react-fsd-architecture.md                     # Arquitectura Feature-Sliced Design
-│   ├── react-clean-architecture.md                   # Principios de Arquitectura Limpia
-│   ├── react-typescript-standards.md                 # Estándares estrictos de TypeScript
-│   ├── react-performance-standards.md                # Rendimiento y memoización
-│   └── react-state-management.md                     # Gestión de estado (Zustand/React Query)
-├── skills/
-│   ├── react-tailwind-architecture-expert/           # Habilidad Experta en Gobernanza y Arquitectura Tailwind CSS
-│   ├── react-tailwind-responsive-architect/          # Habilidad Experta en Arquitectura Responsiva Mobile-First
-│   ├── react-tailwind-mobile-expert/                 # Habilidad Experta en Diseño Móvil con Tailwind CSS
-│   ├── react-typescript-expert/                      # Habilidad Experta en 20 Buenas Prácticas de TypeScript
-│   ├── react-mobile-viewport-auditor/                # Habilidad de Auditoría de Viewport Móvil y Safe Area
-│   ├── react-golang-integration/                     # Habilidad de Integración y Consumo de Backend Golang
-│   ├── react-ui-design-expert/                       # Habilidad Experta en Diseño UI React + Vite + Tailwind CSS
-│   ├── react-professional-auditor/                   # Habilidad de Auditoría Extrema e ISO
-│   ├── react-component-builder/                      # Constructor asistido de componentes UI
-│   ├── react-refactor-optimizer/                     # Refactorizador de código legacy
-│   └── react-custom-hook-creator/                    # Creador de Custom Hooks
-├── plugin.json                                      # Manifiesto de Plugin para Antigravity
-├── install.js                                       # Script ejecutable en Node.js (Multiplataforma)
-├── install.ps1                                      # Script para PowerShell (Windows)
-└── install.sh                                       # Script para Bash (Linux/macOS)
+├── rules/             # 17 Reglas estandarizadas de gobernanza técnica
+├── skills/            # 13 Habilidades especializadas para asistentes AI
+├── package.json       # Manifiesto ejecutable para distribución NPX / NPM
+├── plugin.json        # Manifiesto de integración para Antigravity IDE
+├── install.js         # Script ejecutable multiplataforma (Node.js)
+├── install.ps1        # Script de instalación para Windows PowerShell
+├── install.sh         # Script de instalación para Linux y macOS
+└── LICENSE            # Licencia pública MIT libre y gratuita
 ```
 
 ---
 
-## Cómo Importar en Cualquier Proyecto
+## Integración con Asistentes AI
 
-Puedes utilizar este repositorio en cualquier proyecto React mediante 3 métodos sencillos:
+Una vez instalada la carpeta `.agents/` en tu proyecto o registrada globalmente:
 
-### Método 1: Script de Instalación Automático (Recomendado)
-
-Desde la terminal del proyecto React donde quieras instalar las reglas:
-
-```bash
-node path/to/react-promt-skills-rules/install.js .
-```
-
-Esto creará automáticamente la carpeta `.agents/` en el proyecto destino con todas las reglas y habilidades listadas.
+1. **Reglas Automáticas**: Antigravity y Gemini aplican de forma pasiva y continua todas las normas de TypeScript estricto, orden de archivos, gobernanza Tailwind y directivas de seguridad en cada edición de código.
+2. **Invocación de Habilidades**: Puedes activar cualquiera de las 13 habilidades solicitándolo explícitamente en la interacción (ejemplo: *"Aplica la habilidad react-multitenant-architecture para configurar el contexto de inquilinos"*).
 
 ---
 
-### Método 2: Instalación Global en la Máquina (Para todos los proyectos)
+## Licencia Libre (MIT)
 
-Si deseas que estas reglas y habilidades estén disponibles automáticamente en cualquier proyecto que abras en tu equipo:
+Este proyecto es software de código abierto distribuido bajo la **Licencia MIT**. Es 100% **libre y gratuito** para su uso, modificación, distribución e integración en cualquier proyecto comercial o privado sin restricciones.
 
-```bash
-# Usando Node.js
-node install.js --global
-
-# O en Windows PowerShell
-.\install.ps1 -Global
-
-# O en Linux/macOS
-./install.sh --global
-```
-
-Las reglas se instalarán en `~/.gemini/config/`.
-
----
-
-### Método 3: Copiado Manual o Submódulo Git
-
-```bash
-mkdir -p .agents
-cp -r path/to/react-promt-skills-rules/rules .agents/
-cp -r path/to/react-promt-skills-rules/skills .agents/
-```
-
----
-
-## Cómo Actuarán el Asistente y Antigravity con estas Reglas
-
-1. **Automatic Rules (Siempre Activas)**:
-   - Al editar cualquier archivo React (`.tsx`, `.ts`), Antigravity aplicará automáticamente la gobernanza de Tailwind CSS a gran escala (helper `cn()` con `clsx` y `tailwind-merge`, prohibición de `@apply` y valores arbitrarios), tematización con variables CSS, purga en producción, linting con ESLint, metodología Mobile-First, prohibición de JavaScript plano (`.js`/`.jsx`), las 20 buenas prácticas de TypeScript, prevención de auto-zoom en móviles, safe area insets, consumo de backend Golang con TanStack Query, arquitectura FSD y orden extremo sin emojis.
-
-2. **Skills a Demanda**:
-   - Para estructurar componentes UI reutilizables y tematizar con Tailwind CSS: `react-tailwind-architecture-expert`.
-   - Para maquetar y auditar interfaces responsivas Mobile-First: `react-tailwind-responsive-architect`.
-   - Para maquetar y auditar interfaces móviles con Tailwind CSS: `react-tailwind-mobile-expert`.
-   - Para auditar y estructurar tipos complejos en TypeScript: `react-typescript-expert`.
-   - Para auditar y corregir problemas de zoom o solapamiento en móviles: `react-mobile-viewport-auditor`.
-   - Para integrar y consumir endpoints de un backend en Golang: `react-golang-integration`.
-   - Para diseñar interfaces de usuario profesionales en React + Vite + Tailwind CSS: `react-ui-design-expert`.
-   - Para auditar código con rigor extremo e ISO: `react-professional-auditor`.
-   - Para crear componentes de UI: `react-component-builder`.
-   - Para auditar o refactorizar código legacy: `react-refactor-optimizer`.
-   - Para crear custom hooks: `react-custom-hook-creator`.
-
----
-
-## Licencia
-
-MIT - Libre para usar, modificar y distribuir en cualquier proyecto.

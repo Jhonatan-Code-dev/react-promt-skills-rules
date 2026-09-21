@@ -5,6 +5,9 @@ param (
 )
 
 $SourceDir = $PSScriptRoot
+if (-not $SourceDir) {
+    $SourceDir = Get-Location
+}
 $SourceRules = Join-Path $SourceDir "rules"
 $SourceSkills = Join-Path $SourceDir "skills"
 

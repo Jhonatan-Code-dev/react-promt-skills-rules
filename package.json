@@ -1,0 +1,31 @@
+{
+  "name": "react-promt-skills-rules",
+  "version": "1.0.0",
+  "description": "Suite centralizada de Reglas (Rules) y Habilidades (Skills) reutilizables para aplicaciones React, TypeScript, Tailwind CSS, Multi-Tenant SaaS y Antigravity AI.",
+  "main": "install.js",
+  "bin": {
+    "react-promt-skills-rules": "./install.js"
+  },
+  "scripts": {
+    "start": "node install.js",
+    "install:global": "node install.js --global"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jhonatan-Code-dev/react-promt-skills-rules.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwind",
+    "antigravity",
+    "ai-rules",
+    "skills",
+    "prompts",
+    "fsd",
+    "multitenant",
+    "iso25010"
+  ],
+  "author": "Jhonatan Dev",
+  "license": "MIT"
+}

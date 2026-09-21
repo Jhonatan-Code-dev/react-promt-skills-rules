@@ -2,9 +2,7 @@
 
 /**
  * Script de instalación de Rules y Skills para proyectos React.
- * Copia las reglas y habilidades desde este repositorio fuente a:
- *  - Carpeta de un proyecto destino: /path/to/project/.agents/
- *  - Configuración Global de la máquina: ~/.gemini/config/ (Usando --global o -g)
+ * Soporta ejecución directa mediante NPX, GitHub, Node.js o CLI global.
  */
 
 const fs = require('fs');
@@ -16,29 +14,35 @@ const isGlobal = args.includes('--global') || args.includes('-g');
 const targetArgIndex = args.findIndex((arg) => !arg.startsWith('-'));
 const customTarget = targetArgIndex !== -1 ? args[targetArgIndex] : null;
 
-// Directorio de origen (raíz del paquete react-promt-skills-rules)
+// Directorio de origen (raíz del paquete ejecutable)
 const sourceDir = __dirname;
 const sourceRulesDir = path.join(sourceDir, 'rules');
 const sourceSkillsDir = path.join(sourceDir, 'skills');
 
-// Prevenir auto-instalación duplicada dentro de este mismo repositorio fuente
-if (!isGlobal && !customTarget) {
-  console.log('=== Instalador de React Rules & Skills ===');
-  console.log('Te encuentras dentro del repositorio fuente (react-promt-skills-rules).');
-  console.log('\nPara instalar en otro proyecto React, especifica la ruta del proyecto:');
-  console.log('  node install.js /ruta/a/tu-proyecto-react\n');
-  console.log('Para instalar globalmente en tu equipo:');
-  console.log('  node install.js --global\n');
-  process.exit(0);
-}
+// Directorio de ejecución del usuario (dónde se lanzó la terminal)
+const workingDir = process.cwd();
 
-// Determinar directorio de destino
+// Determinar el directorio de destino
 let targetBaseDir;
 
 if (isGlobal) {
   targetBaseDir = path.join(os.homedir(), '.gemini', 'config');
-} else {
+} else if (customTarget) {
   targetBaseDir = path.resolve(customTarget, '.agents');
+} else if (workingDir !== sourceDir) {
+  // Ejecutado desde npx o fuera del propio repositorio fuente
+  targetBaseDir = path.join(workingDir, '.agents');
+} else {
+  // Ejecutado dentro de la raíz del propio repositorio sin parámetros
+  console.log('=== Instalador de React Rules & Skills ===\n');
+  console.log('Modos de instalación súper sencillos:\n');
+  console.log('1. En el proyecto activo (vía NPX):');
+  console.log('   npx react-promt-skills-rules\n');
+  console.log('2. En un proyecto específico:');
+  console.log('   node install.js /ruta/a/tu-proyecto-react\n');
+  console.log('3. Globalmente en tu equipo:');
+  console.log('   node install.js --global\n');
+  process.exit(0);
 }
 
 console.log('=== Instalador de React Rules & Skills ===');

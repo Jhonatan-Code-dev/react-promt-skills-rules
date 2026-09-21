@@ -1,9 +1,10 @@
 {
   "name": "react-promt-skills-rules",
-  "version": "1.9.0",
-  "description": "Suite reutilizable de reglas de codificación (Tematización con Variables CSS, Gobernanza y Arquitectura a Gran Escala con Tailwind CSS, Mobile-First, 100% TypeScript, React, Vite, 20 Buenas Prácticas Avanzadas de TS, Viewport Móvil y Safe Area, Golang REST con TanStack Query, FSD, Clean Architecture, Estándares ISO, Orden Extremo) y habilidades asistidas para proyectos React con Antigravity.",
+  "version": "2.0.0",
+  "description": "Suite reutilizable de reglas de codificación (Reverse Proxy con Vite, Nginx, Caddy y Golang, Tematización con Variables CSS, Gobernanza y Arquitectura a Gran Escala con Tailwind CSS, Mobile-First, 100% TypeScript, React, Vite, 20 Buenas Prácticas Avanzadas de TS, Viewport Móvil y Safe Area, Golang REST con TanStack Query, FSD, Clean Architecture, Estándares ISO, Orden Extremo) y habilidades asistidas para proyectos React con Antigravity.",
   "author": "Jhonatan-Code-dev",
   "rules": [
+    "./rules/react-reverse-proxy-architecture.md",
     "./rules/react-tailwind-theme-and-variables.md",
     "./rules/react-tailwind-architecture-and-governance.md",
     "./rules/react-tailwind-mobile-first-breakpoints.md",
@@ -21,6 +22,7 @@
     "./rules/react-state-management.md"
   ],
   "skills": [
+    "./skills/react-reverse-proxy-expert",
     "./skills/react-tailwind-architecture-expert",
     "./skills/react-tailwind-responsive-architect",
     "./skills/react-tailwind-mobile-expert",
