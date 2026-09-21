@@ -19,7 +19,8 @@
     "./rules/react-clean-architecture.md",
     "./rules/react-typescript-standards.md",
     "./rules/react-performance-standards.md",
-    "./rules/react-state-management.md"
+    "./rules/react-state-management.md",
+    "./rules/react-viewport-fit-sticky-pagination.md"
   ],
   "skills": [
     "./skills/react-reverse-proxy-expert",
@@ -33,6 +34,7 @@
     "./skills/react-professional-auditor",
     "./skills/react-component-builder",
     "./skills/react-refactor-optimizer",
-    "./skills/react-custom-hook-creator"
+    "./skills/react-custom-hook-creator",
+    "./skills/react-viewport-fit-pagination-expert"
   ]
 }
