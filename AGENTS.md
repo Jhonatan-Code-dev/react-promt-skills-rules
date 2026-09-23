@@ -37,6 +37,7 @@ Toda respuesta, modificación o adición de código debe acatar de manera simult
 18. **`react-performance-standards.md`**: Memoización selectiva y justificada con `useMemo` y `useCallback`, evitando re-renderizados innecesarios.
 19. **`react-state-management.md`**: Separación inequívoca entre estado local (`useState`), estado global cliente (Zustand) y estado de servidor (TanStack Query).
 20. **`react-mobile-system-bars-and-safe-areas.md`**: Gobernanza oficial de Safe Areas, barra de estado (Status Bar) y barras del sistema para iOS (Apple HIG) y Android (Material 3 / Android 15 Edge-to-Edge). Blindaje de cabeceras, modales y controles interactivos contra recortes de cámara frontal (notch, orificio punch-hole, Isla Dinámica), reloj, batería, señal Wi-Fi y gestos del sistema.
+21. **`react-modal-and-drawer-safe-area.md`**: Gobernanza estricta de modales a pantalla completa, diálogos centrados, Bottom Sheets y Drawers. Blindaje de cabecera contra cámara e Isla Dinámica, restricción dinámica de altura contra la barra de estado y prohibición total de botones 'X' sin offset de Safe Area.
 
 ### B. Aplicación Activa de Habilidades (`skills/`)
 La IA debe adoptar automáticamente el rol y los procedimientos técnicos de las siguientes habilidades ante requerimientos afines:

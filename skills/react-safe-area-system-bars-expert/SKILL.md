@@ -153,16 +153,34 @@ export function MobileScreenLayout({
 
 ---
 
-## 4. Prompt de Verificación de Integridad para Desarrolladores
+## 4. Auditoría y Refactorización de Modales, Diálogos y Drawers
+
+Al auditar cualquier modal o diálogo (`createPortal`, `Dialog`, `Modal`, `Drawer`, `BottomSheet`), aplicar la siguiente matriz de verificación:
+
+### A. Detección de Botón 'X' Ciego
+- **Buscar**: `absolute top-4 right-4` o `absolute top-2 right-2` sin safe area.
+- **Acción**: Trasladar el botón dentro de la barra de cabecera con `pt-[env(safe-area-inset-top)]` o aplicar `top-[calc(env(safe-area-inset-top)+0.75rem)]`.
+
+### B. Contención de Altura en Diálogos Flotantes
+- **Buscar**: Modales centrados con `max-h-[90vh]` o sin tope superior en móvil.
+- **Acción**: Establecer en el contenedor exterior `pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))]` y en la tarjeta interna `max-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-2rem)]`.
+
+### C. Protección en Bottom Sheets
+- **Buscar**: Hojas deslizables que se expanden a casi el 100% de altura.
+- **Acción**: Limitar altura a `max-h-[calc(100dvh-env(safe-area-inset-top)-1rem)]` e incluir `pb-[max(1rem,env(safe-area-inset-bottom))]` en la barra de acciones inferior.
+
+---
+
+## 5. Prompt de Verificación de Integridad para Desarrolladores
 
 Para solicitar a un asistente la verificación exhaustiva de una vista móvil, usar el siguiente comando de instrucción:
 
 ```text
-Audita esta vista móvil bajo la habilidad react-safe-area-system-bars-expert.
+Audita esta vista móvil o modal bajo la habilidad react-safe-area-system-bars-expert.
 Verifica que:
 1. Ningún botón, título o icono quede tapado por la cámara frontal, notch, Isla Dinámica o barra de batería/wifi.
 2. Todo elemento en sticky/fixed top aplique pt-[env(safe-area-inset-top)].
-3. Los objetivos de toque superior midan al menos 44x44px.
-4. Los modales de pantalla completa protejan su botón de cierre.
-5. El código sea 100% TypeScript estricto sin any.
+3. Los objetivos de toque superior midan al menos 44x44px con touch-manipulation.
+4. Si es un modal o diálogo, que aplique las reglas de react-modal-and-drawer-safe-area.md (cabecera con padding seguro, altura máxima restringida y botón de cierre blindado).
+5. El código sea 100% TypeScript estricto sin any, sin @ts-ignore y sin React.FC.
 ```

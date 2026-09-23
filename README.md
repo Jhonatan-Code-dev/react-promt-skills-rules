@@ -80,6 +80,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 | `react-viewport-fit-sticky-pagination.md` | Layout 100% viewport-fit, scroll interno aislado y paginación fija al fondo. |
 | `react-toggle-switch-and-table-stability.md` | Interruptor deslizante, UI optimista (0ms), table-fixed y control anti-toast. |
 | `react-mobile-system-bars-and-safe-areas.md` | Gobernanza estricta de Safe Areas, Status Bar (Apple HIG y Android 15 Edge-to-Edge), cámara y batería/wifi. |
+| `react-modal-and-drawer-safe-area.md` | Blindaje de modales, diálogos centrados, Bottom Sheets y Drawers contra recortes de cámara y barra de estado. |
 
 ---
 
@@ -110,7 +111,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 ```text
 react-promt-skills-rules/
-├── rules/             # 20 Reglas estandarizadas de gobernanza técnica
+├── rules/             # 21 Reglas estandarizadas de gobernanza técnica
 ├── skills/            # 16 Habilidades especializadas para asistentes AI
 ├── package.json       # Manifiesto ejecutable para distribución NPX / NPM
 ├── plugin.json        # Manifiesto de integración para Antigravity IDE
@@ -155,6 +156,22 @@ REGLAS OBLIGATORIAS:
 3. Clase touch-manipulation: Todos los botones, campos de entrada y controles interactivos deben incluir 'touch-manipulation' para evitar el retardo táctil de 300ms y el doble-tap zoom.
 4. Salvaguarda CSS Global: Asegurar en la capa de estilos base la regla '@supports (-webkit-touch-callout: none)' forzando font-size: 16px en max-width: 767px.
 5. Código 100% TypeScript estricto, sin any, sin @ts-ignore y con accesibilidad WCAG 2.1 AA.
+```
+
+### 3. Prompt Maestro: Blindaje de Modales, Diálogos y Drawers con Safe Area
+
+```text
+DIRECTIVA DE GOBERNANZA: BLINDAJE ESTRICTO DE MODALES, DIÁLOGOS Y DRAWERS CON SAFE AREAS
+
+Se exige que todo modal, diálogo emergente, Bottom Sheet o panel lateral (Drawer) en React respete incondicionalmente las zonas seguras (Safe Area Insets) de hardware y sistema en iOS y Android.
+
+REGLAS OBLIGATORIAS:
+1. Modales a Pantalla Completa: Obligatorio 'pt-[env(safe-area-inset-top)]' en cabecera fija de al menos h-14, 'pb-[env(safe-area-inset-bottom)]' en pie y scroll interno en main con 'flex-1 min-h-0 overflow-y-auto'.
+2. Diálogos Centrados Flotantes: El contenedor exterior debe usar 'pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))]' y la tarjeta debe limitar su altura con 'max-h-[calc(100dvh-env(safe-area-inset-top)-env(safe-area-inset-bottom)-2rem)]' para impedir que invada la Isla Dinámica o la cámara frontal.
+3. Bottom Sheets: La altura máxima no debe superar 'calc(100dvh-env(safe-area-inset-top)-1rem)' y el pie debe incluir 'pb-[max(1rem,env(safe-area-inset-bottom))]'.
+4. Prohibición de 'absolute top-4 right-4': Queda terminantemente prohibido posicionar botones de cierre ('X') con coordenadas absolutas fijas sin desplazamiento de safe-area-inset-top. El botón debe estar dentro de la cabecera segura o usar 'top-[calc(env(safe-area-inset-top)+0.75rem)]'.
+5. Botones Interactivos: Tamaño mínimo de 44x44px con clase 'touch-manipulation' para evitar la interceptación de gestos del sistema.
+6. Código 100% TypeScript estricto, sin any, sin @ts-ignore, sin React.FC y con atributos aria-modal="true" y role="dialog".
 ```
 
 ---
