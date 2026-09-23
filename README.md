@@ -79,6 +79,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 | `react-state-management.md` | Criterios de delimitación entre estado local, global (Zustand) y de servidor. |
 | `react-viewport-fit-sticky-pagination.md` | Layout 100% viewport-fit, scroll interno aislado y paginación fija al fondo. |
 | `react-toggle-switch-and-table-stability.md` | Interruptor deslizante, UI optimista (0ms), table-fixed y control anti-toast. |
+| `react-mobile-system-bars-and-safe-areas.md` | Gobernanza estricta de Safe Areas, Status Bar (Apple HIG y Android 15 Edge-to-Edge), cámara y batería/wifi. |
 
 ---
 
@@ -86,6 +87,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 | Habilidad | Propósito y Caso de Uso |
 | :--- | :--- |
+| `react-safe-area-system-bars-expert` | Auditoría y blindaje de cabeceras, modales y layouts contra cámara frontal, Dynamic Island y barras de estado. |
 | `react-multitenant-architecture` | Implementación de SaaS multinquilino, resolución de tenant y marcas dinámicas. |
 | `react-golang-integration` | Creación de clientes de API REST y hooks de consulta para backends Golang. |
 | `react-reverse-proxy-expert` | Auditoría y configuración de proxies inversos en Vite Dev Server, Nginx y Caddy. |
@@ -108,8 +110,8 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 ```text
 react-promt-skills-rules/
-├── rules/             # 19 Reglas estandarizadas de gobernanza técnica
-├── skills/            # 15 Habilidades especializadas para asistentes AI
+├── rules/             # 20 Reglas estandarizadas de gobernanza técnica
+├── skills/            # 16 Habilidades especializadas para asistentes AI
 ├── package.json       # Manifiesto ejecutable para distribución NPX / NPM
 ├── plugin.json        # Manifiesto de integración para Antigravity IDE
 ├── install.js         # Script ejecutable multiplataforma (Node.js)
@@ -120,12 +122,49 @@ react-promt-skills-rules/
 
 ---
 
+## Prompts Maestros Oficiales (Uso Directo)
+
+Puedes copiar y pegar estos prompts en cualquier sesión de chat con un asistente de inteligencia artificial o agregarlos a las instrucciones del sistema en cualquier IDE:
+
+### 1. Prompt Maestro: Zonas Seguras y Barras de Sistema (iOS / Android)
+
+```text
+DIRECTIVA ESTRICTA DE GOBERNANZA MÓVIL: RESPETO ABSOLUTO DE BARRAS DE SISTEMA Y SAFE AREAS (iOS / ANDROID)
+
+Se exige el cumplimiento riguroso de las directrices Apple Human Interface Guidelines (iOS) y Google Material Design 3 (Android 15 Edge-to-Edge). Queda terminantemente prohibido generar interfaces móviles donde los elementos visuales, títulos, botones de retroceso, logotipos, campos de búsqueda o acciones queden tapados, recortados o solapados por la cámara frontal (notch, orificio punch-hole, Isla Dinámica), barra de estado del sistema (reloj, notificaciones), o indicadores de batería y señal Wi-Fi.
+
+REGLAS DE OBLIGATORIO CUMPLIMIENTO:
+1. En index.html es mandatorio el metatag: <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />.
+2. Arquitectura 'Bleed Background, Inset Content': El fondo o desenfoque de la cabecera debe sangrar hasta el borde físico superior (top: 0), pero todos los elementos interactivos e informativos deben tener padding-top estricto mediante pt-[env(safe-area-inset-top)].
+3. Modales y Paneles Deslizables: Ningún modal a pantalla completa o drawer lateral puede posicionar botones de cierre ('X') con coordenadas absolutas sin considerar safe-area-inset-top. Todo modal debe poseer una barra de control con relleno seguro.
+4. Tamaños Táctiles Mínimos: Todo control interactivo ubicado en barras superiores debe medir al menos 44x44px para evitar colisión con los gestos del sistema (Centro de Control en iOS, Notificaciones en Android).
+5. Rotación Horizontal: Respetar recortes laterales de cámara mediante pl-[env(safe-area-inset-left)] y pr-[env(safe-area-inset-right)].
+6. Código 100% TypeScript estricto, sin any, sin @ts-ignore, sin React.FC y con clases Tailwind validadas.
+```
+
+### 2. Prompt Maestro: Eliminación Total de Auto-Zoom en iPhone (Safari e iOS PWA)
+
+```text
+DIRECTIVA DE GOBERNANZA: ELIMINACIÓN TOTAL DE AUTO-ZOOM EN IPHONE (SAFARI, PWA Y WEBVIEW)
+
+Queda estrictamente prohibido generar campos de formulario (<input>, <select>, <textarea>) que provoquen auto-zoom al recibir foco en iPhone (iOS Safari, PWA instalada en Home Screen o WebViews).
+
+REGLAS OBLIGATORIAS:
+1. Tamaño Mínimo de 16px: Todo input, select y textarea DEBE tener la clase 'text-base' (16px) como estilo base para móviles. Solo está permitido reducir a 'sm:text-sm' o 'md:text-sm' a partir de pantallas de escritorio (sm: o md:).
+2. Prohibición de Fuentes Menores a 16px en Móvil: Queda prohibido el uso de 'text-xs' (12px) o 'text-sm' (14px) directamente en campos de entrada móviles sin prefijo responsivo.
+3. Clase touch-manipulation: Todos los botones, campos de entrada y controles interactivos deben incluir 'touch-manipulation' para evitar el retardo táctil de 300ms y el doble-tap zoom.
+4. Salvaguarda CSS Global: Asegurar en la capa de estilos base la regla '@supports (-webkit-touch-callout: none)' forzando font-size: 16px en max-width: 767px.
+5. Código 100% TypeScript estricto, sin any, sin @ts-ignore y con accesibilidad WCAG 2.1 AA.
+```
+
+---
+
 ## Integración con Asistentes AI
 
 Una vez instalada la carpeta `.agents/` en tu proyecto o registrada globalmente:
 
 1. **Reglas Automáticas**: Antigravity y Gemini aplican de forma pasiva y continua todas las normas de TypeScript estricto, orden de archivos, gobernanza Tailwind y directivas de seguridad en cada edición de código.
-2. **Invocación de Habilidades**: Puedes activar cualquiera de las 15 habilidades solicitándolo explícitamente en la interacción (ejemplo: *"Aplica la habilidad react-multitenant-architecture para configurar el contexto de inquilinos"*).
+2. **Invocación de Habilidades**: Puedes activar cualquiera de las 16 habilidades solicitándolo explícitamente en la interacción (ejemplo: *"Aplica la habilidad react-safe-area-system-bars-expert para blindar la cabecera móvil"*).
 
 ---
 

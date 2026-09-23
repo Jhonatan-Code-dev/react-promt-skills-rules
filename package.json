@@ -1,7 +1,7 @@
 {
   "name": "react-promt-skills-rules",
-  "version": "1.0.0",
-  "description": "Suite centralizada de Reglas (Rules) y Habilidades (Skills) reutilizables para aplicaciones React, TypeScript, Tailwind CSS, Multi-Tenant SaaS y Antigravity AI.",
+  "version": "2.1.0",
+  "description": "Suite centralizada de Reglas (Rules) y Habilidades (Skills) reutilizables para aplicaciones React, TypeScript, Tailwind CSS, Safe Areas oficiales (Apple HIG y Android 15), Multi-Tenant SaaS y Antigravity AI.",
   "main": "install.js",
   "bin": {
     "react-promt-skills-rules": "./install.js"
@@ -18,6 +18,10 @@
     "react",
     "typescript",
     "tailwind",
+    "safe-area",
+    "status-bar",
+    "apple-hig",
+    "material-design-3",
     "antigravity",
     "ai-rules",
     "skills",

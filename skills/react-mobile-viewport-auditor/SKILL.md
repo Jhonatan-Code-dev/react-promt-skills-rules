@@ -1,58 +1,99 @@
 ---
 name: react-mobile-viewport-auditor
 description: >-
-  Audita y corrige componentes React para evitar auto-zoom al enfocar formularios en móviles (iOS/Android)
-  y garantizar que la interfaz respete las zonas seguras (Safe Area Insets) de cámaras, notches y barras de gestos.
+  Audita, detecta y soluciona problemas de auto-zoom forzado en iPhone (iOS Safari, PWA y WebViews)
+  al interactuar con formularios, garantizando tamaños de fuente mínimos de 16px, touch-manipulation y estabilidad de viewport.
 ---
 
-# React Mobile Viewport Auditor Skill
+# React Mobile Viewport & Auto-Zoom Auditor Skill
 
-Esta habilidad ayuda a revisar y solucionar problemas de auto-zoom e interferencia con elementos físicos de dispositivos móviles en aplicaciones React + Vite.
-
----
-
-## Metodología de Auditoría
-
-### 1. Detección de Fuentes Pequeñas en Inputs (Causa de Auto-Zoom)
-- Buscar cualquier `input`, `select` o `textarea` con clases de texto inferiores a `16px` (ej: `text-xs`, `text-sm` sin calificador responsivo).
-- Solución: Cambiar la clase base a `text-base` (o agregar la regla CSS `font-size: 16px` en vista móvil) y escalar a `sm:text-sm` solo a partir de pantallas de escritorio.
-
-### 2. Detección de Solapamiento con la Cámara o Notch Superior
-- Inspeccionar componentes con `fixed top-0` o `sticky top-0`.
-- Solución: Añadir padding superior seguro `pt-[env(safe-area-inset-top)]`.
-
-### 3. Detección de Solapamiento con la Barra de Gestos Inferior
-- Inspeccionar menús de navegación inferior (`bottom-nav`), modales o barras de acción fijas con `fixed bottom-0`.
-- Solución: Añadir padding inferior seguro `pb-[env(safe-area-inset-bottom)]`.
+Esta habilidad asiste a desarrolladores y asistentes de inteligencia artificial en la auditoría y corrección definitiva del comportamiento de auto-zoom involuntario en dispositivos Apple iPhone (iOS Safari, aplicaciones PWA instaladas en pantalla de inicio y WebViews), así como la optimización táctil de formularios interactivos.
 
 ---
 
-## Ejemplo de Formulario Auditado y Corregido
+## 1. Procedimiento de Auditoría Paso a Paso
+
+Al analizar cualquier formulario, vista de autenticación, buscador o pantalla interactiva en React, ejecutar las siguientes comprobaciones:
+
+### Paso 1: Búsqueda de Fuentes Menores a 16px en Campos de Formulario
+- **Diagnóstico**: Buscar cualquier etiqueta `<input>`, `<select>` o `<textarea>` con clases como `text-xs` (12px) o `text-sm` (14px) aplicadas sin prefijo de breakpoint de escritorio (`sm:`, `md:`).
+- **Causa Raíz**: WebKit en iOS detecta cualquier fuente computada inferior a 16px al recibir el foco (`focus`) e inicia un zoom automático que deforma la maquetación.
+- **Solución Obligatoria**:
+  - Cambiar la clase base a `text-base` (`16px`).
+  - Si en pantallas grandes se requiere fuente más pequeña, usar `text-base sm:text-sm`.
+
+### Paso 2: Detección de Retardos Táctiles y Doble Tap
+- **Diagnóstico**: Elementos interactivos (botones, pestañas, selectores) sin la propiedad `touch-action: manipulation`.
+- **Solución**: Incorporar la clase de Tailwind `touch-manipulation`.
+
+### Paso 3: Verificación de Salvaguarda Global en CSS
+- **Diagnóstico**: Comprobar si `src/index.css` o la hoja de estilos global cuenta con la salvaguarda `@supports (-webkit-touch-callout: none)`.
+- **Solución**: Si no existe, agregar la regla en el archivo CSS global para proteger todos los campos de forma preventiva.
+
+---
+
+## 2. Componente de Referencia: `MobileFormInput`
+
+Componente estricto en TypeScript que garantiza 0% de auto-zoom en iPhone e interfaces móviles:
 
 ```tsx
-export function MobileLoginForm() {
-  return (
-    <form className="w-full max-w-sm mx-auto space-y-4 p-4">
-      <div className="space-y-1">
-        <label htmlFor="email" className="block text-xs font-semibold text-slate-600 dark:text-slate-400">
-          Correo Electrónico
-        </label>
-        {/* Usar text-base en móviles para evitar auto-zoom en iOS Safari */}
-        <input
-          id="email"
-          type="email"
-          placeholder="ejemplo@correo.com"
-          className="w-full text-base sm:text-sm px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none"
-        />
-      </div>
+import { forwardRef, InputHTMLAttributes } from 'react';
 
-      <button
-        type="submit"
-        className="w-full py-3 text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl touch-manipulation active:scale-98 transition-all"
-      >
-        Iniciar Sesión
-      </button>
-    </form>
-  );
+export interface MobileFormInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  error?: string;
 }
+
+/**
+ * Campo de texto optimizado para iOS Safari y PWA.
+ * Aplica text-base (16px) como estilo base móvil para erradicar el auto-zoom de WebKit.
+ */
+export const MobileFormInput = forwardRef<HTMLInputElement, MobileFormInputProps>(
+  ({ label, error, id, className = '', ...props }, ref) => {
+    const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
+
+    return (
+      <div className="w-full space-y-1.5">
+        <label 
+          htmlFor={inputId} 
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400"
+        >
+          {label}
+        </label>
+        <input
+          ref={ref}
+          id={inputId}
+          className={`w-full text-base sm:text-sm px-3.5 py-2.5 bg-white dark:bg-slate-900 border ${
+            error 
+              ? 'border-rose-500 focus:ring-rose-500' 
+              : 'border-slate-300 dark:border-slate-800 focus:ring-indigo-500'
+          } rounded-xl text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 touch-manipulation transition-colors ${className}`}
+          {...props}
+        />
+        {error && (
+          <p className="text-xs text-rose-500 font-medium">
+            {error}
+          </p>
+        )}
+      </div>
+    );
+  }
+);
+
+MobileFormInput.displayName = 'MobileFormInput';
+```
+
+---
+
+## 3. Prompt de Invocación Directa para Auditoría
+
+Para exigir a cualquier asistente o modelo la auditoría de auto-zoom en un archivo o componente específico, utilizar el siguiente comando:
+
+```text
+Aplica la habilidad react-mobile-viewport-auditor sobre este formulario.
+Asegúrate de:
+1. Reemplazar toda clase text-xs o text-sm en inputs/selects/textareas por text-base en móvil (text-base sm:text-sm).
+2. Añadir touch-manipulation en todos los elementos interactivos.
+3. Asegurar que no ocurra auto-zoom en iOS Safari ni en PWA instalada en iPhone.
+4. Mantener TypeScript 100% estricto sin any ni comentarios en desuso.
 ```

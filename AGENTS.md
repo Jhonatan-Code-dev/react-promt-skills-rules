@@ -36,9 +36,11 @@ Toda respuesta, modificación o adición de código debe acatar de manera simult
 17. **`react-vite-tailwind-design-system.md`**: Principios de diseño atómico, tokens visuales y consistencia estética.
 18. **`react-performance-standards.md`**: Memoización selectiva y justificada con `useMemo` y `useCallback`, evitando re-renderizados innecesarios.
 19. **`react-state-management.md`**: Separación inequívoca entre estado local (`useState`), estado global cliente (Zustand) y estado de servidor (TanStack Query).
+20. **`react-mobile-system-bars-and-safe-areas.md`**: Gobernanza oficial de Safe Areas, barra de estado (Status Bar) y barras del sistema para iOS (Apple HIG) y Android (Material 3 / Android 15 Edge-to-Edge). Blindaje de cabeceras, modales y controles interactivos contra recortes de cámara frontal (notch, orificio punch-hole, Isla Dinámica), reloj, batería, señal Wi-Fi y gestos del sistema.
 
 ### B. Aplicación Activa de Habilidades (`skills/`)
 La IA debe adoptar automáticamente el rol y los procedimientos técnicos de las siguientes habilidades ante requerimientos afines:
+- **`react-safe-area-system-bars-expert`**: Al auditar, diagnosticar o construir componentes y maquetas móviles garantizando cero solapamiento con la cámara frontal, Dynamic Island, barra de estado, batería y Wi-Fi en iOS y Android.
 - **`react-toggle-switch-expert`**: Al diseñar, auditar o refactorizar columnas de estado e interruptores en grillas de datos.
 - **`react-viewport-fit-pagination-expert`**: Al diseñar pantallas de gestión, catálogos, maestros o tablas administrativas con paginación anclada.
 - **`react-mobile-viewport-auditor`**: Al auditar formularios, inputs móviles y safe area insets.
