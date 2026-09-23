@@ -174,6 +174,24 @@ REGLAS OBLIGATORIAS:
 6. Código 100% TypeScript estricto, sin any, sin @ts-ignore, sin React.FC y con atributos aria-modal="true" y role="dialog".
 ```
 
+### 4. Prompt Maestro: Diseño de Interfaces Nativas y UI/UX para iPhone (iOS HIG & PWA)
+
+```text
+DIRECTIVA MAESTRA DE DISEÑO Y EXPERIENCIA DE USUARIO PARA IPHONE (iOS HIG & PWA)
+
+Se exige la concepción y maquetación de interfaces web y PWA con estándares de diseño nativos de Apple (iOS Human Interface Guidelines). Las aplicaciones deben transmitir una sensación de fluidez nativa, estética premium de alto impacto y acabado pulido en dispositivos iPhone.
+
+REGLAS DE DISEÑO Y UI/UX EN IPHONE:
+1. Respeto de Safe Area y Sensores: Usar 'pt-[env(safe-area-inset-top)]' en cabeceras y 'pb-[env(safe-area-inset-bottom)]' en barras inferiores. Los fondos o efectos de desenfoque deben sangrar hasta los bordes físicos (top: 0, bottom: 0).
+2. Estética de Materiales y Translucidez: Aplicar capas con desenfoque de fondo ('backdrop-blur-md' o 'backdrop-blur-xl') y colores semitransparentes en navbars y modales ('bg-white/80' o 'bg-slate-900/80') con bordes sutiles ('border-slate-200/80' o 'dark:border-slate-800/80').
+3. Objetivos Táctiles y Micro-interacciones: Todo botón o control interactivo debe tener un tamaño mínimo de 44x44px, la clase 'touch-manipulation' y respuesta táctil activa ('active:scale-95' o 'active:scale-98') con transiciones suaves de 150ms a 200ms.
+4. Prevención de Auto-Zoom: Todos los elementos <input>, <select> y <textarea> deben tener como tamaño de fuente base 'text-base' (16px) en vista móvil para evitar el zoom automático de WebKit.
+5. Zona del Pulgar (Thumb Zone): Ubicar acciones primarias, menús de navegación principal y botones de confirmación en la parte inferior de la pantalla ('bottom-0') respetando el indicador de inicio ('Home Indicator').
+6. Tipografía e Iconografía Limpia: Usar jerarquía tipográfica nativa de iOS (encabezados en negrita 'font-bold', subtítulos 'font-medium', texto con alto contraste) e iconografía vectorial sobria.
+7. Soporte de Modo Oscuro Nativo: Usar variables cromáticas adaptativas o modificadores 'dark:' en Tailwind CSS garantizando el contraste WCAG 2.1 AA.
+8. Código 100% TypeScript estricto, sin any, sin @ts-ignore, sin React.FC y con maquetación responsiva Mobile-First.
+```
+
 ---
 
 ## Integración con Asistentes AI
