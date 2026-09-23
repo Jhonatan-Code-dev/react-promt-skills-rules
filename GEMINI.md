@@ -38,9 +38,12 @@ Toda respuesta, modificación o adición de código debe acatar de manera simult
 19. **`react-state-management.md`**: Separación inequívoca entre estado local (`useState`), estado global cliente (Zustand) y estado de servidor (TanStack Query).
 20. **`react-mobile-system-bars-and-safe-areas.md`**: Gobernanza oficial de Safe Areas, barra de estado (Status Bar) y barras del sistema para iOS (Apple HIG) y Android (Material 3 / Android 15 Edge-to-Edge). Blindaje de cabeceras, modales y controles interactivos contra recortes de cámara frontal (notch, orificio punch-hole, Isla Dinámica), reloj, batería, señal Wi-Fi y gestos del sistema.
 21. **`react-modal-and-drawer-safe-area.md`**: Gobernanza estricta de modales a pantalla completa, diálogos centrados, Bottom Sheets y Drawers. Blindaje de cabecera contra cámara e Isla Dinámica, restricción dinámica de altura contra la barra de estado y prohibición total de botones 'X' sin offset de Safe Area.
+22. **`react-ios-pwa-webkit-compatibility-and-clipboard.md`**: Estándares de compatibilidad iOS Safari / WebKit Standalone PWA. Prevención del colapso SVG a 0x0px, arquitectura Dual-Fallback para Clipboard API y guardián de orientación portrait en iPhones.
+23. **`react-webkit-svg-rendering-standards.md`**: Prevención de colapso a 0x0 píxeles e invisibilidad de iconos SVG en iOS WebKit / Safari mediante atributos `width="100%"` `height="100%"` y clases `w-full h-full` por defecto.
 
 ### B. Aplicación Activa de Habilidades (`skills/`)
 La IA debe adoptar automáticamente el rol y los procedimientos técnicos de las siguientes habilidades ante requerimientos afines:
+- **`react-webkit-svg-rendering-expert`**: Al auditar, diagnosticar o corregir componentes e iconos SVG inline garantizando su visibilidad y renderizado idéntico en iOS Safari (WebKit) y Android Chrome (Blink).
 - **`react-safe-area-system-bars-expert`**: Al auditar, diagnosticar o construir componentes y maquetas móviles garantizando cero solapamiento con la cámara frontal, Dynamic Island, barra de estado, batería y Wi-Fi en iOS y Android.
 - **`react-toggle-switch-expert`**: Al diseñar, auditar o refactorizar columnas de estado e interruptores en grillas de datos.
 - **`react-viewport-fit-pagination-expert`**: Al diseñar pantallas de gestión, catálogos, maestros o tablas administrativas con paginación anclada.
@@ -48,7 +51,7 @@ La IA debe adoptar automáticamente el rol y los procedimientos técnicos de las
 - **`react-professional-auditor`**: Al evaluar mantenibilidad, accesibilidad (WCAG 2.1 AA) y estándares ISO.
 - **`react-component-builder`**: Al crear nuevos componentes aislados, modulares y tipados.
 - **`react-refactor-optimizer`**: Al limpiar deuda técnica y reorganizar código desestructurado.
-- **`react-custom-hook-creator`**: Al encapsular lógica de estado y efectos secundarios reutilizables.
+- **`react-custom-hook-creator`**: Al encapsular lógica de estado y efectos secundarios reutilizable.
 - **`react-golang-integration`**: Al integrar endpoints y servicios de backend en Go.
 - **`react-multitenant-architecture`**: Al implementar SaaS multi-inquilino y marcas dinámicas.
 - **`react-reverse-proxy-expert`**: Al auditar y conectar proxies locales o de producción.

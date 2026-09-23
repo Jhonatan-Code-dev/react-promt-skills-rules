@@ -81,6 +81,8 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 | `react-toggle-switch-and-table-stability.md` | Interruptor deslizante, UI optimista (0ms), table-fixed y control anti-toast. |
 | `react-mobile-system-bars-and-safe-areas.md` | Gobernanza estricta de Safe Areas, Status Bar (Apple HIG y Android 15 Edge-to-Edge), cámara y batería/wifi. |
 | `react-modal-and-drawer-safe-area.md` | Blindaje de modales, diálogos centrados, Bottom Sheets y Drawers contra recortes de cámara y barra de estado. |
+| `react-webkit-svg-rendering-standards.md` | Prevención de colapso a 0x0 píxeles e invisibilidad de iconos SVG en iOS WebKit / Safari mediante `width="100%"` `height="100%"` y `w-full h-full`. |
+| `react-ios-pwa-webkit-compatibility-and-clipboard.md` | Estándares de compatibilidad iOS WebKit, renderizado SVG (0x0px), Clipboard API y bloqueo de rotación PWA. |
 
 ---
 
@@ -88,6 +90,7 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 | Habilidad | Propósito y Caso de Uso |
 | :--- | :--- |
+| `react-webkit-svg-rendering-expert` | Auditoría, prevención y corrección de colapso a 0x0 píxeles de iconos SVG inline en iOS WebKit / Safari. |
 | `react-safe-area-system-bars-expert` | Auditoría y blindaje de cabeceras, modales y layouts contra cámara frontal, Dynamic Island y barras de estado. |
 | `react-multitenant-architecture` | Implementación de SaaS multinquilino, resolución de tenant y marcas dinámicas. |
 | `react-golang-integration` | Creación de clientes de API REST y hooks de consulta para backends Golang. |
@@ -111,8 +114,8 @@ El paquete impone estándares de ingeniería rigurosos basados en normativas int
 
 ```text
 react-promt-skills-rules/
-├── rules/             # 21 Reglas estandarizadas de gobernanza técnica
-├── skills/            # 16 Habilidades especializadas para asistentes AI
+├── rules/             # 22 Reglas estandarizadas de gobernanza técnica
+├── skills/            # 17 Habilidades especializadas para asistentes AI
 ├── package.json       # Manifiesto ejecutable para distribución NPX / NPM
 ├── plugin.json        # Manifiesto de integración para Antigravity IDE
 ├── install.js         # Script ejecutable multiplataforma (Node.js)
